@@ -67,7 +67,9 @@ p {
 
 #btn {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
+    gap: 3px;
     justify-content: space-around;
 }
 
