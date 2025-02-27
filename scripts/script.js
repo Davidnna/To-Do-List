@@ -10,13 +10,13 @@ function add() {
         let list = document.getElementById("list");
         let item = document.createElement("li");
         item.innerHTML = `
-            <section id="completed">
+            <section>
                 <span>${todo}</span>
             </section>
-            <div id="btn">
-                <button onclick="edit(this)">Edit</button>
-                <button onclick="cancel(this)">Cancel</button>
-                <button onclick="complete(this)">Complete</button>
+            <div class="btn">
+                <button type="button" onclick="edit(this)">Edit</button>
+                <button type="button" onclick="cancel(this)">Cancel</button>
+                <button type="button" onclick="complete(this)">Complete</button>
             </div>
         `;
         list.appendChild(item);
@@ -28,7 +28,7 @@ function edit(button) {
     let item = button.parentElement.parentElement;
     let old = item.querySelector("span").innerText;
     let todo = prompt("Edit your task:", old);
-    if (todo !== null && todo.trim() !== '') {
+    if (todo !== null && todo.trim() !== "") {
         item.querySelector("span").innerText = todo.trim();
     }
 }
@@ -44,4 +44,6 @@ function complete(button) {
     completed.innerText = "Completed";
     item.querySelector("section").appendChild(completed);
     button.disabled = true;
+    button.style.backgroundColor = "#804a4a";
+    button.style.cursor = "auto";
 }
